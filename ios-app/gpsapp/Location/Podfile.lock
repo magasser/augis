@@ -1,0 +1,33 @@
+PODS:
+  - CocoaAsyncSocket (7.6.5)
+  - CocoaMQTT (1.3.0-rc.1):
+    - CocoaMQTT/Core (= 1.3.0-rc.1)
+  - CocoaMQTT/Core (1.3.0-rc.1):
+    - CocoaAsyncSocket (~> 7.6.3)
+  - CocoaMQTT/WebSockets (1.3.0-rc.1):
+    - CocoaMQTT/Core
+    - Starscream (~> 3.0.2)
+  - OpenSSL-Universal (1.1.180)
+  - Starscream (3.0.6)
+
+DEPENDENCIES:
+  - CocoaMQTT
+  - CocoaMQTT/WebSockets (= 1.3.0-rc.1)
+  - OpenSSL-Universal
+
+SPEC REPOS:
+  trunk:
+    - CocoaAsyncSocket
+    - CocoaMQTT
+    - OpenSSL-Universal
+    - Starscream
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  CocoaMQTT: 3a24a180c2d7759465abbd96d49c655e4399ac35
+  OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+
+PODFILE CHECKSUM: 58f4e1bdf658f5e0a743ff7e47b5712ccccf6f98
+
+COCOAPODS: 1.10.1

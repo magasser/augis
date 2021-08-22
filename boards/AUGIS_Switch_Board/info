@@ -1,0 +1,152 @@
+{
+  "uuid": "4557e25563d61ddbd1a7cc08cf15172b",
+  "path": "Offline/AUGIS_Switch_Board",
+  "name": "AUGIS_Switch_Board",
+  "content": "Small board to switch the signal lines from autonomos mode to remote control mode",
+  "created_at": "2021-02-28 13:03:53",
+  "updated_at": "2021-02-28 13:49:37",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "017fd0b05126ce377092904f48d5d392",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "7121b81917944257a874ca51682bfcaa": 1,
+        "24eeb2ceca08480b92b847b6a310acda": 1,
+        "a7291ceaee5442a999df26c55c7e675d": 5,
+        "3ec77201bbcd4ecd8722658d581a4e60": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "PS",
+          1,
+          "HDR-F-2.54_1X2",
+          "H3",
+          {
+            "BOM_Supplier Part": "C49661",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "36b1306a115341f4b4d9407fb34974e0",
+            "uuid": "3ec77201bbcd4ecd8722658d581a4e60"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0603",
+          "C1",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f187d3c25f9f43a29b67d3cfa364ee78",
+            "uuid": "24eeb2ceca08480b92b847b6a310acda"
+          }
+        ],
+        [
+          "DG413DJZ",
+          1,
+          "DIP16",
+          "U1",
+          {
+            "BOM_Manufacturer Part": "",
+            "puuid": "36387ea742a04602bc24d100c866268f",
+            "uuid": "7121b81917944257a874ca51682bfcaa"
+          }
+        ],
+        [
+          "OUT_T",
+          1,
+          "HDR-F-2.54_1X3",
+          "H1",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ],
+        [
+          "OUT_S",
+          1,
+          "HDR-F-2.54_1X3",
+          "H2",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ],
+        [
+          "REC_IN_T",
+          1,
+          "HDR-F-2.54_1X3",
+          "H5",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ],
+        [
+          "REC_IN_S",
+          1,
+          "HDR-F-2.54_1X3",
+          "H6",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ],
+        [
+          "ARD_IN",
+          1,
+          "HDR-F-2.54_1X3",
+          "H4",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ]
+      ],
+      "updateTime": 1614516577,
+      "createTime": 1614516577,
+      "histories": [],
+      "created_at": "2021-02-28 13:49:37",
+      "updated_at": "2021-02-28 13:49:37"
+    }
+  ],
+  "sort": [],
+  "title": "AUGIS_Switch_Board",
+  "foldername": "AUGIS_Switch_Board",
+  "schfilename": "AUGIS_Switch_Board.json",
+  "schfilemtime": 1614516577876
+}

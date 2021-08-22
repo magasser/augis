@@ -1,0 +1,88 @@
+@import "colors";
+
+.totalbox {
+  height: auto;
+  transform: translate(0, 50%);
+  background: $white;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+  .login-field {
+    position: relative;
+
+    .login-icon {
+      width: 30px;
+      position: absolute;
+      top: 70%;
+      transform: translate(-50%, -50%);
+      left: 10%;
+    }
+
+    input {
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+      padding: 10px;
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 200px;
+    }
+
+  }
+
+
+  .warning {
+    color: $red;
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .boxcheckbox {
+      margin-top: 10px;
+
+      label {
+        font-size: 12px;
+        font-weight: 300;
+      }
+
+      .loginbtn {
+        background: $turquoise;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 30px;
+        font-weight: 600;
+        font-size: 15px;
+        color: $white;
+        opacity: .7;
+
+        :hover {
+          cursor: pointer;
+          opacity: 1;
+        }
+
+        :active {
+          opacity: .7;
+        }
+      }
+
+      .loginbtn:hover {
+        background: $light-green;
+        cursor: pointer;
+      }
+
+      button {
+        margin-top: 20px;
+      }
+    }
+  }
+}

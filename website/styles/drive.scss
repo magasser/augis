@@ -1,0 +1,249 @@
+@import "colors";
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+}
+
+.left {
+  left: 0;
+  width: 45%;
+
+  .controls {
+    position: absolute;
+    left: 0;
+    padding-left: 20px;
+
+    .autonomous {
+
+      .buttons {
+        display: block;
+
+        .button {
+          width: 50px;
+          height: 25px;
+          background-color: $white;
+          border: 2px solid $black;
+          border-radius: 10px;
+          position: relative;
+          cursor: pointer;
+          display: inline-block;
+          margin-bottom: 2em;
+        }
+      }
+
+      .route {
+
+        > label {
+          margin-bottom: 15px;
+          display: inherit;
+        }
+
+        #choose-route {
+          display: block;
+        }
+      }
+
+      .route-upload {
+        margin-top: 1em;
+
+        > label {
+          margin-bottom: 15px;
+          display: inherit;
+        }
+      }
+
+      .mode-selection {
+        > label {
+          margin-bottom: 15px;
+          position: relative;
+          display: block;
+        }
+
+        .radio-option {
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .radio-remote {
+
+      .sliders {
+        padding-top: 85px;
+
+        .slider {
+          appearance: none;
+          width: 200px;
+          height: 25px;
+          background: $grey;
+          transform: rotate(-90deg);
+        }
+
+        label {
+          display: block;
+          position: absolute;
+          bottom: -120px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .engine-right {
+          position: absolute;
+          left: 150px;
+          display: inline-block;
+        }
+
+        .both-engines {
+          position: absolute;
+          left: 50px;
+          display: inline-block;
+        }
+
+        .engine-left {
+          position: absolute;
+          left: -50px;
+          display: inline-block;
+        }
+
+        .slider::-webkit-slider-thumb {
+          appearance: none;
+          width: 75px;
+          height: 75px;
+          border-radius: 50%;
+          background: $black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .information {
+    position: absolute;
+    left: 50%;
+
+    > div {
+      display: flex;
+    }
+
+    .light {
+      margin-bottom: 5px;
+
+      .signal {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+      }
+
+      p {
+        margin: 5px;
+      }
+
+      .light-background {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      .red-light {
+        border: 2px solid $red;
+        border-radius: 50%;
+      }
+
+      .green-light {
+        border: 2px solid $light-green;
+        border-radius: 50%;
+      }
+
+      .yellow-light {
+        border: 2px solid $yellow;
+        border-radius: 50%;
+      }
+
+      .red-background {
+        background-color: $red;
+      }
+
+      .green-background {
+        background-color: $light-green;
+      }
+
+      .yellow-background {
+        background-color: $yellow;
+      }
+
+      .red {
+        color: $red;
+      }
+
+      .green {
+        color: $light-green;
+      }
+
+      .yellow {
+        color: $yellow;
+      }
+    }
+  }
+
+}
+
+.right {
+  right: 0;
+  width: 55%;
+
+  .streams {
+    display: flex;
+
+    .camera {
+      width: 50%;
+    }
+  }
+
+  #map {
+    width: 100%;
+    height: 44vh;
+    cursor: crosshair;
+    z-index: 0;
+  }
+
+  .legend {
+    padding-left: 15px;
+    margin-top: 1em;
+
+    .element {
+      display: inline-block;
+      margin-right: 1em;
+
+      * {
+        display: inline-block;
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+
+      .line {
+        border-left: 3px solid;
+        height: 20px;
+        width: 10px;
+        transform: translateY(7px) rotate(30deg);
+      }
+
+      .green-line {
+        border-left-color: $green;
+      }
+
+      .orange-line {
+        border-left-color: $orange;
+      }
+
+      .red-line {
+        border-left-color: $red;
+      }
+    }
+  }
+}
+
+.inline {
+  display: inline-block;
+}

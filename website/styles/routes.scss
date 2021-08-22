@@ -1,0 +1,19 @@
+.route {
+  display: block;
+  color: #454444;
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  img {
+    position: absolute;
+    max-height: 2.3rem;
+    top: 30%;
+    margin-left: 20px;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+}

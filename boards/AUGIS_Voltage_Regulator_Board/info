@@ -1,0 +1,109 @@
+{
+  "uuid": "b9c5b506b306f73d06dcbe78457b5c70",
+  "path": "Offline/AUGIS_Voltage_Regulator_Board",
+  "name": "AUGIS_Voltage_Regulator_Board",
+  "content": "",
+  "created_at": "2021-03-09 10:55:37",
+  "updated_at": "2021-03-09 15:34:00",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "c5985e80d9f88d6a14ad2b2dcc9fd767",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "dde97235a02f4458a8aff20390f66475": 1,
+        "a7a0e276dadd4f8097422d2afc2e1b9c": 2,
+        "3ec77201bbcd4ecd8722658d581a4e60": 1,
+        "a690e17cdd88420d87764071e9f13038": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "HDR-F-2.54_1x2",
+          1,
+          "HDR-F-2.54_1X2",
+          "H1",
+          {
+            "BOM_Supplier Part": "C49661",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "36b1306a115341f4b4d9407fb34974e0",
+            "uuid": "3ec77201bbcd4ecd8722658d581a4e60"
+          }
+        ],
+        [
+          "10uF",
+          1,
+          "CASE-A_3216",
+          "C1",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "ce25118ef0b041b8a773e71ca28ae65d",
+            "uuid": "a7a0e276dadd4f8097422d2afc2e1b9c"
+          }
+        ],
+        [
+          "22uF",
+          1,
+          "CASE-A_3216",
+          "C2",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "ce25118ef0b041b8a773e71ca28ae65d",
+            "uuid": "a7a0e276dadd4f8097422d2afc2e1b9c"
+          }
+        ],
+        [
+          "USB-A",
+          2,
+          "MOLEX_480371000",
+          "X1,X2",
+          {
+            "BOM_Manufacturer Part": "",
+            "puuid": "dfabe73ff23e424a9291c1966764e3a6",
+            "uuid": "a690e17cdd88420d87764071e9f13038"
+          }
+        ],
+        [
+          "LT1085CT-5#PBF",
+          1,
+          "TO-220-3_L10.0-W4.5-P2.54-L",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C661212",
+            "BOM_Manufacturer": "Analog Devices",
+            "BOM_Manufacturer Part": "LT1085CT-5#PBF",
+            "puuid": "948e610cffd14df79f04c73832b1409b",
+            "uuid": "dde97235a02f4458a8aff20390f66475"
+          }
+        ]
+      ],
+      "updateTime": 1615300440,
+      "createTime": 1615283751,
+      "histories": [],
+      "created_at": "2021-03-09 10:55:51",
+      "updated_at": "2021-03-09 15:34:00"
+    }
+  ],
+  "sort": [],
+  "title": "AUGIS_Voltage_Regulator_Board",
+  "foldername": "AUGIS_Voltage_Regulator_Board",
+  "schfilename": "AUGIS_Voltage_Regulator_Board.json",
+  "schfilemtime": 1615300440686
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Project AUGIS</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+    <meta name="description" content="BFH AUGIS Project"/>
+    <meta name="keywords" content="augis, augis-project"/>
+
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script type="application/javascript" src="scripts/L.Path.Transform.js"></script>
+    <script type="application/javascript" src="scripts/main.js"></script>
+    <script type="application/javascript" src="scripts/helper.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+
+</head>
+
+<body>
+<header>
+    <ul>
+        <li>
+            <a class="nav-items" href="/">Map</a>
+        </li>
+        <li>
+            <a class="nav-items" href="pages/drive.html">Drive</a>
+        </li>
+        <li>
+            <a class="nav-items" href="pages/routes.html">Routes</a>
+        </li>
+        <li>
+            <a class="nav-items" href="pages/about.html">About</a>
+        </li>
+    </ul>
+</header>
+
+<div id="map"></div>
+<div class="toolbox">
+
+    <button class="map-button" onclick="enableRectCreateMode()"><img class="button-icon" src="images/rect.svg"> Create
+        Rectangle
+    </button>
+    <button class="map-button" onclick="createPolygon()"><img class="button-icon" src="images/bbox.svg"> Create Bounding
+        Box
+    </button>
+    <button class="map-button" id="route-create" onclick="createRotatedRouteInArea()"><img class="button-icon"
+                                                                                           src="images/generate-route.svg">
+        Create Route
+    </button>
+    <button class="map-button" onclick="createLine('route')"><img class="button-icon" src="images/route.svg">Connect
+        Points
+    </button>
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn map-button"><img class="button-icon" src="images/save.svg">Save
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+            <a onclick="toggleSavePopup('line')" href="#">Save Line</a>
+            <a onclick="toggleSavePopup('route')" href="#">Save Route</a>
+        </div>
+    </div>
+    <button class="map-button" onclick="clearMap()"><img class="button-icon" src="images/delete.svg">Clear Map</button>
+</div>
+<br>
+<div class="options">
+    <div>Updated selected marker:</div>
+    <br>
+    <label for="lat">Latitude</label><input id="lat" type="number">
+    <label for="lng">Longitude</label><input id="lng" type="number">
+    <button onclick="updateMarker()">Update</button>
+    <button onclick="removeMarker()">Remove</button>
+</div>
+<div class="options">
+    <p>Route spacing:</p>
+    <label for="route-spacing">Space in meters</label>
+    <input id="route-spacing" type="number">
+    <button onclick="updateRouteSpacing()">Update</button>
+</div>
+
+<div id="popup-wrapper" class="popup-container">
+    <div class="popup-content">
+        <span class="close" onclick="toggleSavePopup('')">&times;</span>
+        <h2 class="popup-title">Save Route</h2>
+        <div class="input-box">
+            <label for="name">Name:</label>
+            <input class="inputs" id="name" name="name" type="text"/>
+        </div>
+        <div class="input-select">
+            <label for="select-lake">Lake:</label>
+            <select class="inputs" id="select-lake" name="lake"></select>
+        </div>
+        <div class="input-box">
+            <label for="description">Description:</label>
+            <textarea class="inputs" id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        <input id="save-button" type="button" value="Save" onclick="saveRoute()"/>
+    </div>
+</div>
+</body>
+</html>

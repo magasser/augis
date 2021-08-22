@@ -1,0 +1,18 @@
+# MacOS
+.DS_Store
+
+# Intellij
+.idea/
+website/.idea/
+
+# VS Code
+*/.vscode/*
+
+# Python
+config.py
+*/__pycache__/*
+*.pyc
+*.log
+
+# Node JS
+.env

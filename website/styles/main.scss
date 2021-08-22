@@ -1,0 +1,159 @@
+@import "colors";
+
+#map {
+  width: 100%;
+  height: 80vh;
+  cursor: crosshair;
+  z-index: 0;
+}
+
+.map-button {
+  width: 200px;
+  height: 40px;
+  background-color: $white;
+  border: 2px solid $black;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.toolbox {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.button-icon {
+  width: 25px;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  color: $dark-grey;
+  z-index: 1;
+}
+
+.close {
+  color: $grey;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-flex {
+  margin: 30px;
+}
+
+.options {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.popup-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.3);
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 17, 17, 0.61);
+  display: flex;
+  align-items: center;
+
+  .popup-content {
+    background-color: $white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid $grey;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 17px;
+      padding: 10px;
+      line-height: 20px;
+    }
+
+    span {
+      color: $grey;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    span:hover, span:focus {
+      color: $black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .input-box {
+      margin-top: 20px;
+
+      .inputs {
+        margin-top: 0;
+        width: 50%;
+        left: 25%;
+        position: absolute;
+        background-color: $white;
+        border: 1px solid $black;
+      }
+    }
+
+    #save-button {
+      position: absolute;
+      right: 5%;
+      bottom: 5%;
+      background-color: $white;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 80px;
+      height: 30px;
+      margin-top: 0;
+      padding: 0;
+      border: 1px solid $black;
+    }
+  }
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hidden {
+  display: none;
+}

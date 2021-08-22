@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project AUGIS</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/ico" href="../favicon.ico"/>
+    <meta name="description" content="BFH AUGIS Project"/>
+    <meta name="keywords" content="augis, augis-project"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/styles.css">
+</head>
+<body>
+<header>
+    <ul>
+        <li>
+            <a class="nav-items" href="../index.html">Map</a>
+        </li>
+        <li>
+            <a class="nav-items" href="drive.html">Drive</a>
+        </li>
+        <li>
+            <a class="nav-items" href="routes.html">Routes</a>
+        </li>
+        <li>
+            <a class="nav-items" href="about.html">About</a>
+        </li>
+    </ul>
+</header>
+
+<h1 class="about-title">About AUGIS</h1>
+<div class="content">
+    <div class="box">
+        <h2>What is AUGIS?</h2>
+        <p>AUGIS is the project of our bachelor thesis and it stands for Autonomous Underwater Ground Image Stitcher. It
+            is
+            a project to create a small boat which can create Orthophotos of the seafloor.<br></p>
+        <img src="../images/augis-diagram.png" alt="augis structure diagram"/>
+        <img src="../images/augis.jpeg" alt="augis in action"/>
+    </div>
+    <div class="box">
+        <h2>Who is working on it?</h2>
+        <p>We are two Computer Science students at the Bern University of Applied Sciences and we are currently in our
+            last semester of our
+            bachelor's degree program.<br></p>
+        <ul class="developers">
+            <li>
+                <img src="../images/jh2.png" alt="image of julian haldimann"/><br>
+                <b>Julian Haldimann</b>
+            </li>
+            <li>
+                <img src="../images/mg2.png" alt="image of manuel gasser"/><br>
+                <b>Manuel Gasser</b>
+            </li>
+        </ul>
+    </div>
+</div>
+<h1 class="about-title">Work Progress</h1>
+<div class="content">
+    <div class="box">
+        <h2>06.03.2021</h2>
+        <p><img src="../images/06-03-2021-all.png"/>
+            On the image you see our first tries to connect the existing parts of the boat
+            with our developed Switch Board with which we are able to switch between using
+            the Radio Remote or our own programs on the Arduino to control the boat.<br></p>
+    </div>
+    <div class="box">
+        <h2>13.03.2021</h2>
+        <p><img src="../images/13-03-2021-front.png"/>
+            <img src="../images/13-03-2021-back.png"/>
+            On these two images you can see our electronics block which contains a Raspberry Pi (bottom), a Dragino
+            Hat for GPS data (middle) and an Arduino MKR WiFi 1010 (top). This block will eventually be what we use
+            to control the boat.</p>
+    </div>
+
+    <div class="box">
+        <h2>20.03.2021</h2>
+        <p><img src="../images/20-03-2021-gps_test1.PNG">
+            On this image you can see the test route we recorded with our GPS app on the iPhone and the website.
+            The location data from the iPhone is accurate to about 3-4 meters which is not enough for driving exact
+            routes but it is enough for basic autonomous driving.
+        </p>
+    </div>
+</div>
+</body>
+</html>

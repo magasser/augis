@@ -1,0 +1,44 @@
+@import "colors";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    a {
+      text-transform: lowercase;
+      text-decoration: none;
+    }
+
+    a:after {
+      background: none;
+    }
+
+    a:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  a {
+    color: $black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  a:hover {
+    background-color: #ddd
+  }
+}
+
+.show-dropdown {
+  display: block !important;
+}
