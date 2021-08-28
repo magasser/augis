@@ -4,8 +4,8 @@
  * Created: 27.02.2021
  * Updated: 11.06.2021
  * Version: 1.5
- * 
- * Description: 
+ *
+ * Description:
  * Script to control the steering and throttle of the AUGIS
  * with Arduino.
  */
@@ -50,16 +50,16 @@
 #define   RASP_INTERVAL     500
 
 // WiFi connection
-#define WIFI_SSID           "AUGIS_WLAN"
-#define WIFI_PWD            "asdfghjkl"
+#define WIFI_SSID           "***"
+#define WIFI_PWD            "***"
 
 // Serial timeout in milliseconds
 #define SERIAL_TIMEOUT      500
 
 // MQTT connection
 #define MQTT_PORT           1883
-#define MQTT_USER           "user"
-#define MQTT_PWD            "Augis2020$"
+#define MQTT_USER           "***"
+#define MQTT_PWD            "***"
 #define MQTT_KEEPALIVE      3
 
 // Time to wait for connections to be established
@@ -116,15 +116,15 @@ unsigned long lastReconnectWiFi = 0;
  * Setup function sets initial values and pin modes
  */
 void setup() {
-  // Attach servos to their respective pins  
+  // Attach servos to their respective pins
   engineLeft.servo.attach(ENGINE_LEFT_PIN, BWD_THROTTLE_MAX, FWD_THROTTLE_MAX);
   engineRight.servo.attach(ENGINE_RIGHT_PIN, BWD_THROTTLE_MAX, FWD_THROTTLE_MAX);
-  
+
   // Setup serial output for USB communication
   SerialUSB.begin(SERIAL_BAUDE);
   SerialUSB.setTimeout(SERIAL_TIMEOUT);
   unsigned long startConnect = millis();
-  
+
   while(!SerialUSB && millis() - startConnect <= CONN_WAIT) delay(100);
 
   // Set default mode
@@ -139,13 +139,13 @@ void setup() {
   debugPrint("Connecting to WiFi...");
   WiFi.begin(WIFI_SSID, WIFI_PWD);
   startConnect = millis();
-  
+
   while(WiFi.status() != WL_CONNECTED && millis() - startConnect <= CONN_WAIT) {
     delay(100);
   }
 
   if(WiFi.status() == WL_CONNECTED) {
-    debugPrint("Connected to WiFi");    
+    debugPrint("Connected to WiFi");
   } else {
     debugPrint("Failed to connect to WiFi");
   }
@@ -172,7 +172,7 @@ void setup() {
   if(mqttClient.connected()) {
       debugPrint("Connected to MQTT");
   } else {
-    debugPrint("Failed to connect to MQTT ");    
+    debugPrint("Failed to connect to MQTT ");
   }
 
   // Start reconnection loop for WiFi and MQTT
@@ -182,7 +182,7 @@ void setup() {
 /**
  * Main execution loop
  */
-void loop() {  
+void loop() {
   // Execute code from current mode
   switch(mode) {
     case AUTONOMOUS:
@@ -203,7 +203,7 @@ void loop() {
 
   mqttClient.loop();
 
-  
+
   // Delay to not repeat the loop to often
   delay(LOOP_DELAY);
 }
@@ -212,12 +212,12 @@ void loop() {
  * In the autonomous mode the arduino adjust the throttle and
  * steering of the AUGIS according to the received commands.
  */
-void autonomousMode() {  
+void autonomousMode() {
   // Set low to have switch board in autonomous mode
   digitalWrite(MODE_PIN, HIGH);
 
   checkForCommands();
-  
+
   // Write new throttle values for each engine
   writeEngines();
 }
@@ -229,19 +229,19 @@ void autonomousMode() {
   // Set low to have switch board in remote control mode
 void radioRemoteMode() {
   digitalWrite(MODE_PIN, LOW);
-  
-  checkForCommands();  
+
+  checkForCommands();
 }
 
 /**
- * 
+ *
  */
 void emergencyMode() {
   // Set high to have switch board in autonomous mode
   digitalWrite(MODE_PIN, HIGH);
 
   writeEngines();
-  
+
   // Change to radio remote mode when no mqtt is not available
   if(WiFi.status() != WL_CONNECTED || !mqttClient.connected()) {
     //mode = RADIO_REMOTE;
@@ -251,13 +251,13 @@ void emergencyMode() {
 }
 
 /**
- * Check for commands on the serial USB connection and 
+ * Check for commands on the serial USB connection and
  * execute them.
  */
-void checkForCommands() {  
+void checkForCommands() {
   // Check if new command was sent
   if(SerialUSB.available() > 0) {
-    
+
     // Read the command
     Command cmd = readCommand();
     executeCommand(cmd);
@@ -281,9 +281,9 @@ void handleEngine(Engine *engine) {
       delay(100);
       engine->servo.writeMicroseconds(NO_THROTTLE);
       delay(100);
-      engine->servo.writeMicroseconds(engine->cValue);      
+      engine->servo.writeMicroseconds(engine->cValue);
     } else {
-      engine->servo.writeMicroseconds(engine->cValue);   
+      engine->servo.writeMicroseconds(engine->cValue);
     }
   } else {
     engine->servo.writeMicroseconds(engine->cValue);
@@ -293,14 +293,14 @@ void handleEngine(Engine *engine) {
 
 /**
  * Executes given command.
- * 
+ *
  * @param cmd command to be executed
  */
 void executeCommand(Command cmd) {
   String prefix = cmd.getPrefix();
   String data = cmd.getData();
   prefix.toUpperCase();
-  
+
   // Reset time since last command
   if(prefix.equals("CONN") && data.equals("raspberry-pi")) {
     timeLastConnReceived = millis();
@@ -316,7 +316,7 @@ void executeCommand(Command cmd) {
       engineLeft.cValue = map(valueLeft, 0, 100, FWD_DZ, FWD_THROTTLE_MAX);
     } else if(valueLeft == 0) {
       engineLeft.cValue = NO_THROTTLE;
-    } else {      
+    } else {
       engineLeft.cValue = map(valueLeft, -100, 0, BWD_THROTTLE_MAX, BWD_DZ);
     }
     if(valueRight > 0) {
@@ -340,7 +340,7 @@ void executeCommand(Command cmd) {
 
 /**
  * Send command on the serial USB connection.
- * 
+ *
  * @param cmd command to be sent
  */
 void sendCommand(Command cmd) {
@@ -352,18 +352,18 @@ void sendCommand(Command cmd) {
 
 /**
  * Returns command read from SerialUSB USB connection
- * 
+ *
  * @return command that was read
  */
 Command readCommand() {
   String input = SerialUSB.readStringUntil('\n');
-  
+
   return Command(input.c_str(), DEL_PREFIX);
 }
 
 /**
  * Callback when for MQTT message
- * 
+ *
  * @param topic from the message
  * @param payload of the message
  * @param length of the payload
@@ -402,7 +402,7 @@ void mqttOnMessage(char *topic, byte *p, unsigned int length) {
 
 /**
  * Convert byte array to string.
- * 
+ *
  * @param bytes byte array pointer
  * @param length of the byte array
  * @return string
@@ -422,18 +422,18 @@ String convertByteArrayToString(byte *bytes, unsigned int length) {
 void raspberryConnCheck() {
   unsigned long now = millis();
 
-  if(now - timeLastConnSent > RASP_INTERVAL) {    
+  if(now - timeLastConnSent > RASP_INTERVAL) {
     sendCommand(Command("conn", "arduino"));
-    timeLastConnSent = now;    
+    timeLastConnSent = now;
   }
-  
+
   // Check if no commands has been sent for to long
   if(now - timeLastConnReceived > RASP_WAIT) {
     // Failsafe A
     mode = RADIO_REMOTE;
     engineLeft.cValue = NO_THROTTLE;
     engineRight.cValue = NO_THROTTLE;
-    
+
     if(mqttClient.connected()) {
       mqttClient.publish(ERROR_CONN, "Arduino lost connection to Raspberry Pi.");
       mqttClient.publish(INFO_MODE, "radio-remote");
@@ -452,8 +452,8 @@ void reconnectLoop() {
     unsigned long now = millis();
     if(now - lastReconnectWiFi > CONN_WAIT) {
       lastReconnectWiFi = now;
-      if(reconnectToWiFi()) {      
-        debugPrint("Reconnected to WiFi");  
+      if(reconnectToWiFi()) {
+        debugPrint("Reconnected to WiFi");
 
         lastReconnectWiFi = 0;
       }
@@ -468,7 +468,7 @@ void reconnectLoop() {
       lastReconnectMQTT = now;
       if(reconnectToMQTT()) {
         debugPrint("Reconnected to MQTT");
-        
+
         lastReconnectMQTT = 0;
       }
     }
@@ -477,7 +477,7 @@ void reconnectLoop() {
   if(mqttClient.connected()) {
     digitalWrite(LED_BUILTIN, HIGH);
     ledState = true;
-  } else if(WiFi.status() == WL_CONNECTED) {    
+  } else if(WiFi.status() == WL_CONNECTED) {
     mode = RADIO_REMOTE;
     if(ledState) {
       digitalWrite(LED_BUILTIN, LOW);
@@ -486,7 +486,7 @@ void reconnectLoop() {
       digitalWrite(LED_BUILTIN, HIGH);
       ledState = true;
     }
-  } else {    
+  } else {
     mode = RADIO_REMOTE;
     digitalWrite(LED_BUILTIN, LOW);
     ledState = false;
@@ -497,7 +497,7 @@ void reconnectLoop() {
 
 /**
  * Reconnect to WiFi
- * 
+ *
  * @return true if reconnect was successful
  */
 boolean reconnectToWiFi() {
@@ -523,14 +523,14 @@ void mqttSubscribeToTopics() {
 
  /**
   * Reconnect to MQTT
-  * 
+  *
   * @return true if reconnect was successful
   */
 boolean reconnectToMQTT() {
   debugPrint("Reconnecting to MQTT...");
   debugPrint(MQTT_HOST);
 
-  if(mqttClient.connect("arduino_mkr_1010_wifi", MQTT_USER, MQTT_PWD, LWT, 0, false, "arduino")) {    
+  if(mqttClient.connect("arduino_mkr_1010_wifi", MQTT_USER, MQTT_PWD, LWT, 0, false, "arduino")) {
     mqttSubscribeToTopics();
   }
 
